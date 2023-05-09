@@ -13,46 +13,55 @@ function App() {
       title: 'Task 1',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: '25/08/2023',
+      date: new Date('12 24, 22'),
     },
     {
       title: 'Task 2',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: '25/08/2023',
+      date: new Date('12 24, 22'),
     },
     {
       title: 'Task 3',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: '25/08/2023',
+      date: new Date('12 24, 22'),
     },
     {
       title: 'Task 4',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: '25/08/2023',
+      date: new Date('12 24, 22'),
     },
     {
       title: 'Task 5',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: '25/08/2023',
+      date: new Date('09 14, 22'),
     },
     {
       title: 'Task 6',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: '25/08/2023',
+      date: new Date('12 24, 22'),
     },
   ]);
   return (
-    <div className="App">
-      {data && data?.map((item,index) => {
-        return (
-          <Card key={index} title={item.title} status={item.status} description={item.description} date={item.date}/>
-        )
-      })}
+    <div className="container">
+      <div className="App">
+        {data &&
+          data?.map((item, index) => {
+            return (
+              <Card
+                key={index}
+                title={item.title}
+                status={item.status}
+                description={item.description}
+                date={item.date}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 }
