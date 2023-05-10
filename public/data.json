@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Task 1 - Createa a Card",
+    "status": "In progress",
+    "description": "Bla bla bla",
+    "dueDate": "12 24, 22"
+  },
+  {
+    "title": "Task 2 - Createa a dashboard",
+    "status": "In progress",
+    "description": "Bla bla bla",
+    "dueDate": "12 24, 22"
+  },
+  {
+    "title": "Task 3 - Createa a view for our Cards List",
+    "status": "In progress",
+    "description": "Bla bla bla",
+    "dueDate": "12 24, 22"
+  },
+  {
+    "title": "Task 4 - Make a filter",
+    "status": "In progress",
+    "description": "Bla bla bla",
+    "dueDate": "12 24, 22"
+  },
+  {
+    "title": "Task 5 - Create a component Create New Task",
+    "status": "In progress",
+    "description": "Bla bla bla",
+    "dueDate": "09 14, 22"
+  },
+  {
+    "title": "Task 6 - Put all together",
+    "status": "In progress",
+    "description": "Bla bla bla",
+    "dueDate": "12 24, 22"
+  }
+]
