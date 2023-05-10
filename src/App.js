@@ -3,6 +3,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import Card from './components/Card';
 import CreateTask from './components/CreateTask';
+
 import Footer from './components/Footer';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [filterState, setFilterState] = useState([]);
+
 
   async function getData() {
     const res = await fetch('./data.json');
@@ -28,6 +30,7 @@ function App() {
       )
     );
   }, [search.length > 3, data]);
+
 
   const addNewTask = newTask => {
     setData(oldData => [...oldData, newTask]);
@@ -70,6 +73,7 @@ function App() {
               );
             })
           )}
+
         </div>
         <CreateTask addNewTask={addNewTask} />
       </div>
