@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './components/Card';
 import CreateTask from './components/CreateTask';
 
@@ -10,6 +10,8 @@ function App() {
   // const [count, setCount] = useState(0);
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
+  const [filterState, setFilterState] = useState([]);
+
 
   async function getData() {
     const res = await fetch('./data.json');
@@ -21,10 +23,13 @@ function App() {
     getData();
   }, []);
 
-
   useEffect(() => {
-    console.log(search)
-  }, [search]);
+    setFilterState(
+      data.filter(item =>
+        item.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search.length > 3, data]);
 
 
   const addNewTask = newTask => {
@@ -32,20 +37,43 @@ function App() {
   };
   return (
     <div className="main">
-      <input type="search" value={search} name="search" onChange={e => setSearch(e.target.value)} />
+      <input
+        type="search"
+        value={search}
+        name="search"
+        onChange={e => setSearch(e.target.value)}
+      />
+
       <div className="container">
         <div className="cardList">
-          {data.map((item, index) => {
-            return (
-              <Card
-                key={index}
-                title={item.title}
-                status={item.status}
-                description={item.description}
-                dueDate={new Date(item.dueDate)}
-              />
-            );
-          })}
+          {filterState.length > 0 ? (
+            filterState.map((item, index) => {
+              return (
+                <Card
+                  key={index}
+                  title={item.title}
+                  status={item.status}
+                  description={item.description}
+                  dueDate={new Date(item.dueDate)}
+                />
+              );
+            })
+          ) : filterState.length === 0 && search.length > 0 ? (
+            <h1>Nothing was found !!!</h1>
+          ) : (
+            data.map((item, index) => {
+              return (
+                <Card
+                  key={index}
+                  title={item.title}
+                  status={item.status}
+                  description={item.description}
+                  dueDate={new Date(item.dueDate)}
+                />
+              );
+            })
+          )}
+
         </div>
         <CreateTask addNewTask={addNewTask} />
       </div>
