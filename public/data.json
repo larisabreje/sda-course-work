@@ -1,39 +1,50 @@
 [
   {
+    "id": 1,
     "title": "Task 1 - Createa a Card",
     "status": "In progress",
     "description": "Bla bla bla",
-    "dueDate": "12 24, 22"
+    "dueDate": "12 24, 22",
+    "details": "What is Lorem Ipsum?  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   },
   {
+    "id": 2,
     "title": "Task 2 - Createa a dashboard",
     "status": "In progress",
     "description": "Bla bla bla",
-    "dueDate": "12 24, 22"
+    "dueDate": "12 24, 22",
+    "details": "What is Lorem Ipsum?  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   },
   {
+    "id": 3,
     "title": "Task 3 - Createa a view for our Cards List",
     "status": "In progress",
     "description": "Bla bla bla",
-    "dueDate": "12 24, 22"
+    "dueDate": "12 24, 22",
+    "details": "What is Lorem Ipsum?  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   },
   {
+    "id": 4,
     "title": "Task 4 - Make a filter",
     "status": "In progress",
     "description": "Bla bla bla",
-    "dueDate": "12 24, 22"
+    "dueDate": "12 24, 22",
+    "details": "What is Lorem Ipsum?  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   },
   {
+    "id": 5,
     "title": "Task 5 - Create a component Create New Task",
     "status": "In progress",
     "description": "Bla bla bla",
-    "dueDate": "09 14, 22"
+    "dueDate": "09 14, 22",
+    "details": "What is Lorem Ipsum?  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   },
   {
+    "id": 6,
     "title": "Task 6 - Put all together",
     "status": "In progress",
     "description": "Bla bla bla",
-    "dueDate": "12 24, 22"
+    "dueDate": "12 24, 22",
+    "details": "What is Lorem Ipsum?  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   }
 ]
-
