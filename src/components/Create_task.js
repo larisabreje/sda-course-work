@@ -1,3 +1,0 @@
-function CreateTasks(props) {
-  return;
-}

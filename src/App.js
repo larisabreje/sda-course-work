@@ -1,67 +1,73 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Test from './components/Test';
-import Test2 from './components/Test2';
 import React, { useState } from 'react';
-import { abc } from './components/Test2';
 import Card from './components/Card';
+import CreateTask from './components/CreateTask';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [data, setData] = useState([
     {
       title: 'Task 1',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: new Date('12 24, 22'),
+      dueDate: new Date('12 24, 22'),
     },
     {
       title: 'Task 2',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: new Date('12 24, 22'),
+      dueDate: new Date('12 24, 22'),
     },
     {
       title: 'Task 3',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: new Date('12 24, 22'),
+      dueDate: new Date('12 24, 22'),
     },
     {
       title: 'Task 4',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: new Date('12 24, 22'),
+      dueDate: new Date('12 24, 22'),
     },
     {
       title: 'Task 5',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: new Date('09 14, 22'),
+      dueDate: new Date('09 14, 22'),
     },
     {
       title: 'Task 6',
       status: 'In progress',
       description: 'Bla bla bla',
-      date: new Date('12 24, 22'),
+      dueDate: new Date('12 24, 22'),
     },
   ]);
+
+  const addNewTask = newTask => {
+    setData(oldData => [...oldData, newTask]);
+  };
   return (
-    <div className="container">
-      <div className="App">
-        {data &&
-          data?.map((item, index) => {
+    <div className="main">
+      <div className="container">
+        <div className="cardList">
+          {data.map((item, index) => {
             return (
               <Card
                 key={index}
                 title={item.title}
                 status={item.status}
                 description={item.description}
-                date={item.date}
+                dueDate={item.dueDate}
               />
             );
           })}
+        </div>
+        <CreateTask addNewTask={addNewTask} />
       </div>
+      <Footer />
     </div>
   );
 }
