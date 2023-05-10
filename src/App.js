@@ -12,7 +12,6 @@ function App() {
   const [search, setSearch] = useState('');
   const [filterState, setFilterState] = useState([]);
 
-
   async function getData() {
     const res = await fetch('./data.json');
     const response = await res.json();
@@ -31,18 +30,21 @@ function App() {
     );
   }, [search.length > 3, data]);
 
-
   const addNewTask = newTask => {
     setData(oldData => [...oldData, newTask]);
   };
   return (
     <div className="main">
-      <input
-        type="search"
-        value={search}
-        name="search"
-        onChange={e => setSearch(e.target.value)}
-      />
+      <div className="navBar">
+        <input
+          type="search"
+          value={search}
+          name="search"
+          onChange={e => setSearch(e.target.value)}
+          className="seachInput"
+          placeholder="Search some ..."
+        />
+      </div>
 
       <div className="container">
         <div className="cardList">
@@ -73,7 +75,6 @@ function App() {
               );
             })
           )}
-
         </div>
         <CreateTask addNewTask={addNewTask} />
       </div>
