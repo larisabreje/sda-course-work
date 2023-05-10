@@ -1,56 +1,38 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './components/Card';
 import CreateTask from './components/CreateTask';
+
 import Footer from './components/Footer';
 
 function App() {
   // const [count, setCount] = useState(0);
-  const [data, setData] = useState([
-    {
-      title: 'Task 1',
-      status: 'In progress',
-      description: 'Bla bla bla',
-      dueDate: new Date('12 24, 22'),
-    },
-    {
-      title: 'Task 2',
-      status: 'In progress',
-      description: 'Bla bla bla',
-      dueDate: new Date('12 24, 22'),
-    },
-    {
-      title: 'Task 3',
-      status: 'In progress',
-      description: 'Bla bla bla',
-      dueDate: new Date('12 24, 22'),
-    },
-    {
-      title: 'Task 4',
-      status: 'In progress',
-      description: 'Bla bla bla',
-      dueDate: new Date('12 24, 22'),
-    },
-    {
-      title: 'Task 5',
-      status: 'In progress',
-      description: 'Bla bla bla',
-      dueDate: new Date('09 14, 22'),
-    },
-    {
-      title: 'Task 6',
-      status: 'In progress',
-      description: 'Bla bla bla',
-      dueDate: new Date('12 24, 22'),
-    },
-  ]);
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+
+  async function getData() {
+    const res = await fetch('./data.json');
+    const response = await res.json();
+    setData(response);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+
+  useEffect(() => {
+    console.log(search)
+  }, [search]);
+
 
   const addNewTask = newTask => {
     setData(oldData => [...oldData, newTask]);
   };
   return (
     <div className="main">
+      <input type="search" value={search} name="search" onChange={e => setSearch(e.target.value)} />
       <div className="container">
         <div className="cardList">
           {data.map((item, index) => {
@@ -60,7 +42,7 @@ function App() {
                 title={item.title}
                 status={item.status}
                 description={item.description}
-                dueDate={item.dueDate}
+                dueDate={new Date(item.dueDate)}
               />
             );
           })}
