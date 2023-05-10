@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import Card from './Card';
 import CreateTask from './CreateTask';
 import './styles/dashboard.css';
-
 import Footer from './Footer';
 
 const DashBoard = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [filterState, setFilterState] = useState([]);
+  
 
   async function getData() {
     const res = await fetch('./data.json');
@@ -31,6 +31,7 @@ const DashBoard = () => {
   const addNewTask = newTask => {
     setData(oldData => [...oldData, newTask]);
   };
+ 
   return (
     <div className="main">
       <div className="navBar">
@@ -55,6 +56,7 @@ const DashBoard = () => {
                   status={item.status}
                   description={item.description}
                   dueDate={new Date(item.dueDate)}
+                  click = {`/task/${item.id}`}
                 />
               );
             })
@@ -69,6 +71,7 @@ const DashBoard = () => {
                   status={item.status}
                   description={item.description}
                   dueDate={new Date(item.dueDate)}
+                  click = {`/task/${item.id}`}
                 />
               );
             })

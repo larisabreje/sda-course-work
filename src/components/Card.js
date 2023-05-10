@@ -1,14 +1,15 @@
 import './styles/card.css';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Card = props => {
   const [complete, setComplete] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
       {complete ? (
         <></>
       ) : (
-        <div className="card" id={props.id}>
+        <div className="card" id={props.id} onClick={() => navigate(props.click)}>
           <div className="card-title"> {props.title}</div>
           <div className="card-status">
             <span>{props.status}</span>

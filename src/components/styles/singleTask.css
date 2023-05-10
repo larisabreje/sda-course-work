@@ -1,0 +1,22 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.container-single-task{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    padding: 1vh 2vw;
+    margin: 0 10vw;
+    border-radius: 10px;
+   
+}
+
+.container-single-task >:nth-child(even){
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
