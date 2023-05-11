@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Task 1 - Createa a Card",
+    "title": "Createa a Card",
     "status": "In progress",
     "description": "Bla bla bla",
     "dueDate": "12 24, 22",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "title": "Task 2 - Createa a dashboard",
+    "title": "Createa a dashboard",
     "status": "In progress",
     "description": "Bla bla bla",
     "dueDate": "12 24, 22",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "title": "Task 3 - Createa a view for our Cards List",
+    "title": "Createa a view for our Cards List",
     "status": "In progress",
     "description": "Bla bla bla",
     "dueDate": "12 24, 22",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "title": "Task 4 - Make a filter",
+    "title": "Make a filter",
     "status": "In progress",
     "description": "Bla bla bla",
     "dueDate": "12 24, 22",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "title": "Task 5 - Create a component Create New Task",
+    "title": "Create a component Create New Task",
     "status": "In progress",
     "description": "Bla bla bla",
     "dueDate": "09 14, 22",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "title": "Task 6 - Put all together",
+    "title": "Put all together",
     "status": "In progress",
     "description": "Bla bla bla",
     "dueDate": "12 24, 22",

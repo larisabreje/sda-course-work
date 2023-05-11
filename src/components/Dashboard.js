@@ -1,24 +1,15 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Card from './Card';
 import CreateTask from './CreateTask';
 import './styles/dashboard.css';
 import Footer from './Footer';
+import { globalContext } from './context/Context';
 
 const DashBoard = () => {
-  const [data, setData] = useState([]);
+  const { tasks } = useContext(globalContext);
+  const [data, setData] = tasks;
   const [search, setSearch] = useState('');
   const [filterState, setFilterState] = useState([]);
-  
-
-  async function getData() {
-    const res = await fetch('./data.json');
-    const response = await res.json();
-    setData(response);
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   useEffect(() => {
     setFilterState(
@@ -31,7 +22,7 @@ const DashBoard = () => {
   const addNewTask = newTask => {
     setData(oldData => [...oldData, newTask]);
   };
- 
+
   return (
     <div className="main">
       <div className="navBar">
@@ -44,7 +35,7 @@ const DashBoard = () => {
           placeholder="Search some ..."
         />
       </div>
-      
+
       <div className="container">
         <div className="cardList">
           {filterState.length > 0 ? (
@@ -56,7 +47,7 @@ const DashBoard = () => {
                   status={item.status}
                   description={item.description}
                   dueDate={new Date(item.dueDate)}
-                  click = {`/task/${item.id}`}
+                  click={`/task/${item.id}`}
                 />
               );
             })
@@ -71,7 +62,7 @@ const DashBoard = () => {
                   status={item.status}
                   description={item.description}
                   dueDate={new Date(item.dueDate)}
-                  click = {`/task/${item.id}`}
+                  click={`/task/${item.id}`}
                 />
               );
             })
