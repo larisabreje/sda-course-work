@@ -1,19 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import './styles/singleTask.css';
+import { globalContext } from './context/Context';
 
 const Task = () => {
-  const [data, setData] = useState([]);
+  const { tasks } = useContext(globalContext);
+  const [data, setData] = tasks;
   const { id } = useParams();
 
-  async function getData() {
-    const res = await fetch('../data.json');
-    const response = await res.json();
-    setData(response.filter(item => item.id == id));
-  }
-
   useEffect(() => {
-    getData();
+    setData(data.filter(item => item.id == id));
   }, [id]);
 
   return (

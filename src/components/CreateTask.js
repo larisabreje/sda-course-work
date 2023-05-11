@@ -1,11 +1,16 @@
 import './styles/createTasks.css';
-import { useState } from 'react';
+import { globalContext } from './context/Context';
+import { useState,useContext } from 'react';
 
-const CreateTask = props => {
+const CreateTask = () => {
+  const {tasks} = useContext(globalContext);
+  const [,setAddNewTask] = tasks;
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [status, setStatus] = useState('');
+
 
   const createNewTask = event => {
     event.preventDefault();
@@ -16,8 +21,10 @@ const CreateTask = props => {
       description: description,
     };
     console.log('A new task was created');
-    props.addNewTask(newTask);
+    setAddNewTask(prev => [...prev, newTask]);
   };
+
+
   return (
     <div className="createTaskDiv">
       <span>Title:</span>

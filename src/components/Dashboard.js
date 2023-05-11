@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Card from './Card';
 import CreateTask from './CreateTask';
 import './styles/dashboard.css';
@@ -6,36 +6,30 @@ import Footer from './Footer';
 import { globalContext } from './context/Context';
 
 const DashBoard = () => {
-  const { tasks } = useContext(globalContext);
-  const [data, setData] = tasks;
-  const [search, setSearch] = useState('');
-  const [filterState, setFilterState] = useState([]);
+  const { tasks, search, filteredTasks, modalState, modalType } = useContext(globalContext);
+  const [data] = tasks;
+  const [searchInput, setSearchInput] =search;
+  const [filterState] = filteredTasks
+  const [stateModal, setStateModal] = modalState
+  const  [typeModal, setTypeModal] = modalType
 
-  useEffect(() => {
-    setFilterState(
-      data.filter(item =>
-        item.title.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  }, [data, search]);
-
-  const addNewTask = newTask => {
-    setData(oldData => [...oldData, newTask]);
-  };
-
+  const openCreateTaskModal = () => {
+    setStateModal(true);
+    setTypeModal("CREATE TASK")
+  }
   return (
     <div className="main">
       <div className="navBar">
         <input
           type="search"
-          value={search}
+          value={searchInput}
           name="search"
-          onChange={e => setSearch(e.target.value)}
+          onChange={e => setSearchInput(e.target.value)}
           className="seachInput"
           placeholder="Search some ..."
         />
       </div>
-
+      <button onClick={openCreateTaskModal}>Create Task</button>
       <div className="container">
         <div className="cardList">
           {filterState.length > 0 ? (
@@ -68,7 +62,7 @@ const DashBoard = () => {
             })
           )}
         </div>
-        <CreateTask addNewTask={addNewTask} />
+   
       </div>
       <Footer />
     </div>

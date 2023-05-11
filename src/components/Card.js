@@ -16,7 +16,7 @@ const Card = props => {
         </div>
         <div className="card-checkbox">
           <input type="checkbox" id="myCheckbox" />
-          <label for="myCheckbox">Mark as completed</label>
+          <label htmlFor="myCheckbox">Mark as completed</label>
         </div>
       </div>
     </>
