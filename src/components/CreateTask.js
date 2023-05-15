@@ -1,26 +1,35 @@
-import './styles/createTasks.css';
-import { globalContext } from './context/Context';
-import { useState, useContext } from 'react';
+import "./styles/createTasks.css";
+import { globalContext } from "./context/Context";
+import { useState, useContext } from "react";
 
 const CreateTask = () => {
   const { tasks } = useContext(globalContext);
-  const [, setAddNewTask] = tasks;
+  const [addNewTask, setAddNewTask] = tasks;
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [dueDate, setDueDate] = useState('');
-  const [status, setStatus] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [status, setStatus] = useState("");
+  const [details, setDetails] = useState("");
 
-  const createNewTask = event => {
+  const createNewTask = (event) => {
     event.preventDefault();
+    let max = 0;
+    addNewTask.map((item) => {
+      if (item.id > max) {
+        max = item.id;
+      }
+    });
     const newTask = {
+      id: max + 1,
       title: title,
       status: status,
       dueDate: new Date(dueDate),
       description: description,
+      details: details,
     };
-    console.log('A new task was created');
-    setAddNewTask(prev => [...prev, newTask]);
+    console.log("A new task was created");
+    setAddNewTask((prev) => [...prev, newTask]);
   };
 
   return (
@@ -30,7 +39,7 @@ const CreateTask = () => {
         type="text"
         name="title"
         value={title}
-        onChange={e => {
+        onChange={(e) => {
           setTitle(e.target.value);
         }}
       />
@@ -39,7 +48,7 @@ const CreateTask = () => {
         type="text"
         name="description"
         value={description}
-        onChange={e => {
+        onChange={(e) => {
           setDescription(e.target.value);
         }}
       />
@@ -48,7 +57,7 @@ const CreateTask = () => {
         type="date"
         name="dueDate"
         value={dueDate}
-        onChange={e => {
+        onChange={(e) => {
           setDueDate(e.target.value);
         }}
       />
@@ -57,10 +66,21 @@ const CreateTask = () => {
         type="text"
         name="status"
         value={status}
-        onChange={e => {
+        onChange={(e) => {
           setStatus(e.target.value);
         }}
       />
+      <span>Details: </span>
+      <textarea
+        name="details"
+        rows={4}
+        cols={40}
+        value={details}
+        onChange={(e) => {
+          setDetails(e.target.value);
+        }}
+      />
+
       <button onClick={createNewTask}>Add Task</button>
     </div>
   );

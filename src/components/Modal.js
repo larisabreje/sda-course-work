@@ -1,24 +1,26 @@
-import React, { useState, useContext } from 'react';
-import { globalContext } from './context/Context';
-import Modal from 'react-modal';
-import CreateTask from './CreateTask';
+import React, { useState, useContext } from "react";
+import { globalContext } from "./context/Context";
+import Modal from "react-modal";
+import CreateTask from "./CreateTask";
+import DeleteCard from "./DeleteCard";
+
 const style = {
   overlay: {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
   },
   content: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '16px',
-    background: '#fff',
-    padding: '20px',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "16px",
+    background: "#fff",
+    padding: "20px",
   },
 };
 const ModalComp = () => {
@@ -28,8 +30,10 @@ const ModalComp = () => {
 
   const changeModalType = () => {
     switch (typeModal) {
-      case 'CREATE TASK':
+      case "CREATE TASK":
         return <CreateTask />;
+      case "DELETE TASK":
+        return <DeleteCard />;
       default:
         return null;
     }
@@ -39,10 +43,12 @@ const ModalComp = () => {
       isOpen={stateModal}
       onRequestClose={() => setStateModal(false)}
       style={style}
-      contentLabel="Example Modal">
+      contentLabel="Example Modal"
+    >
       <button onClick={() => setStateModal(false)}>Close Modal</button>
       {changeModalType()}
     </Modal>
   );
 };
+
 export default ModalComp;

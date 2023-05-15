@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import Card from './Card';
-import './styles/dashboard.css';
-import Footer from './Footer';
-import { globalContext } from './context/Context';
+import React, { useContext } from "react";
+import Card from "./Card";
+import "./styles/dashboard.css";
+import Footer from "./Footer";
+import { globalContext } from "./context/Context";
 
 const DashBoard = () => {
   const { tasks, search, filteredTasks, modalState, modalType } =
@@ -15,7 +15,7 @@ const DashBoard = () => {
 
   const openCreateTaskModal = () => {
     setStateModal(true);
-    setTypeModal('CREATE TASK');
+    setTypeModal("CREATE TASK");
   };
   return (
     <div className="main">
@@ -24,7 +24,7 @@ const DashBoard = () => {
           type="search"
           value={searchInput}
           name="search"
-          onChange={e => setSearchInput(e.target.value)}
+          onChange={(e) => setSearchInput(e.target.value)}
           className="seachInput"
           placeholder="Search some ..."
         />
@@ -37,6 +37,7 @@ const DashBoard = () => {
               return (
                 <Card
                   key={index}
+                  id={item.id}
                   title={item.title}
                   status={item.status}
                   description={item.description}
@@ -52,6 +53,7 @@ const DashBoard = () => {
               return (
                 <Card
                   key={index}
+                  id={item.id}
                   title={item.title}
                   status={item.status}
                   description={item.description}
