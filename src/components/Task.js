@@ -1,16 +1,17 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './styles/singleTask.css';
 import { globalContext } from './context/Context';
 
 const Task = () => {
   const { tasks } = useContext(globalContext);
-  const [data, setData] = tasks;
+  const [dataContext] = tasks;
+  const [data, setData] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    setData(data.filter(item => item.id == id));
-  }, [id]);
+    setData(dataContext.filter(item => item.id == id));
+  }, [id, dataContext]);
 
   return (
     <div>

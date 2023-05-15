@@ -1,6 +1,5 @@
 import { createContext } from 'react';
 import { useState, useEffect } from 'react';
-
 export const globalContext = createContext();
 
 const Context = ({ children }) => {
@@ -8,7 +7,7 @@ const Context = ({ children }) => {
   const [search, setSearch] = useState('');
   const [filterState, setFilterState] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalType, setModalType] = useState("");
+  const [modalType, setModalType] = useState('');
 
   async function getData() {
     const res = await fetch('../data.json');
@@ -22,7 +21,7 @@ const Context = ({ children }) => {
 
   useEffect(() => {
     setFilterState(
-      data.filter((item) =>
+      data.filter(item =>
         item.title.toLowerCase().includes(search.toLowerCase())
       )
     );
@@ -35,10 +34,8 @@ const Context = ({ children }) => {
         filteredTasks: [filterState, setFilterState],
         search: [search, setSearch],
         modalState: [modalIsOpen, setIsOpen],
-        modalType: [modalType, setModalType]
-
-      }}
-    >
+        modalType: [modalType, setModalType],
+      }}>
       {children}
     </globalContext.Provider>
   );

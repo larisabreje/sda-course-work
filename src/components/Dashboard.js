@@ -1,22 +1,22 @@
 import React, { useContext } from 'react';
 import Card from './Card';
-import CreateTask from './CreateTask';
 import './styles/dashboard.css';
 import Footer from './Footer';
 import { globalContext } from './context/Context';
 
 const DashBoard = () => {
-  const { tasks, search, filteredTasks, modalState, modalType } = useContext(globalContext);
+  const { tasks, search, filteredTasks, modalState, modalType } =
+    useContext(globalContext);
   const [data] = tasks;
-  const [searchInput, setSearchInput] =search;
-  const [filterState] = filteredTasks
-  const [stateModal, setStateModal] = modalState
-  const  [typeModal, setTypeModal] = modalType
+  const [searchInput, setSearchInput] = search;
+  const [filterState] = filteredTasks;
+  const [, setStateModal] = modalState;
+  const [, setTypeModal] = modalType;
 
   const openCreateTaskModal = () => {
     setStateModal(true);
-    setTypeModal("CREATE TASK")
-  }
+    setTypeModal('CREATE TASK');
+  };
   return (
     <div className="main">
       <div className="navBar">
@@ -62,7 +62,6 @@ const DashBoard = () => {
             })
           )}
         </div>
-   
       </div>
       <Footer />
     </div>

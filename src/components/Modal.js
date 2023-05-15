@@ -16,7 +16,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    borderRadius: "16px",
+    borderRadius: '16px',
     background: '#fff',
     padding: '20px',
   },
@@ -24,24 +24,22 @@ const style = {
 const ModalComp = () => {
   const { modalState, modalType } = useContext(globalContext);
   const [stateModal, setStateModal] = modalState;
-  const  [typeModal, setTypeModal] = modalType
+  const [typeModal, setTypeModal] = modalType;
 
-
-    const changeModalType = () => {
-     switch (typeModal){
-        case "CREATE TASK" :
+  const changeModalType = () => {
+    switch (typeModal) {
+      case 'CREATE TASK':
         return <CreateTask />;
-        default :
-        return null
-     }   
+      default:
+        return null;
     }
+  };
   return (
     <Modal
       isOpen={stateModal}
       onRequestClose={() => setStateModal(false)}
       style={style}
-      contentLabel="Example Modal"
-    >
+      contentLabel="Example Modal">
       <button onClick={() => setStateModal(false)}>Close Modal</button>
       {changeModalType()}
     </Modal>
