@@ -29,6 +29,7 @@ const Context = ({ children }) => {
     if (lsData.length < data.length)
       localStorage.setItem('data', JSON.stringify(data));
   }, [data]);
+ 
 
   useEffect(() => {
     setFilterState(

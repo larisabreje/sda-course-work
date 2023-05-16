@@ -57,7 +57,10 @@
   border-radius: 18px;
   padding: 10px;
 }
-
+.editdeleteSection {
+  display: flex;
+  justify-content: space-between;
+}
 .delete {
   font-size: 18px;
   text-align: right;

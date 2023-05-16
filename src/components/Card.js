@@ -13,12 +13,21 @@ const Card = props => {
     setTypeModal('DELETE TASK');
     setDeleteId(props.id);
   };
-
+  const openEditTaskModal = () => {
+    setStateModal(true);
+    setTypeModal('EDIT TASK');
+    setDeleteId(props.id);
+  };
   return (
     <div className="card">
-      <span className="delete" onClick={openDeleteTaskModal}>
-        X
-      </span>
+      <div className="editdeleteSection">
+        <span className="delete" onClick={openEditTaskModal}>
+          Edit
+        </span>
+        <span className="delete" onClick={openDeleteTaskModal}>
+          X
+        </span>
+      </div>
       <hr />
       <div className="card-content" id={props.id}>
         <div className="card-title"> {props.title}</div>
