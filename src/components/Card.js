@@ -1,16 +1,16 @@
-import "./styles/card.css";
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { globalContext } from "./context/Context";
-const Card = (props) => {
-  const { modalState, modalType, deleteId } = useContext(globalContext);
+import './styles/card.css';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { globalContext } from './context/Context';
+const Card = props => {
+  const { modalState, modalType, taskId } = useContext(globalContext);
   const navigate = useNavigate();
   const [, setStateModal] = modalState;
   const [, setTypeModal] = modalType;
-  const [, setDeleteId] = deleteId;
+  const [, setDeleteId] = taskId;
   const openDeleteTaskModal = () => {
     setStateModal(true);
-    setTypeModal("DELETE TASK");
+    setTypeModal('DELETE TASK');
     setDeleteId(props.id);
   };
 
@@ -27,7 +27,7 @@ const Card = (props) => {
         </div>
         <div className="card-description">{props.description}</div>
         <div className="card-date">
-          {props.dueDate.toLocaleDateString("en-US")}
+          {props.dueDate.toLocaleDateString('en-US')}
         </div>
         {/* <div className="card-checkbox">
           <input type="checkbox" id="myCheckbox" />

@@ -5,6 +5,21 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+.main {
+  padding: 24px 32px;
+}
+.createTask {
+  border: 1px #d3d3d3 solid;
+  cursor: pointer;
+  border-radius: 18px;
+  width: 106px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  color: black;
+  background-color: white;
+}
 
 .container {
   display: flex;

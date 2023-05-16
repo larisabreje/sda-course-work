@@ -1,21 +1,20 @@
-import { createContext } from "react";
-import { useState, useEffect } from "react";
+import { createContext } from 'react';
+import { useState, useEffect } from 'react';
 export const globalContext = createContext();
 
 const Context = ({ children }) => {
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filterState, setFilterState] = useState([]);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalType, setModalType] = useState("");
-  const [deleteId, setDeleteId] = useState(null);
-  const lsData = JSON.parse(localStorage.getItem("data")) || [];
+  const [modalType, setModalType] = useState('');
+  const [taskId, setTaskId] = useState(null);
+  const lsData = JSON.parse(localStorage.getItem('data')) || [];
 
   async function getData() {
-    const res = await fetch("../data.json");
+    const res = await fetch('../data.json');
     const response = await res.json();
-
-    if (lsData.length > data.length) {
+    if (lsData.length > response.length) {
       setData(lsData);
     } else {
       setData(response);
@@ -28,12 +27,12 @@ const Context = ({ children }) => {
 
   useEffect(() => {
     if (lsData.length < data.length)
-      localStorage.setItem("data", JSON.stringify(data));
+      localStorage.setItem('data', JSON.stringify(data));
   }, [data]);
 
   useEffect(() => {
     setFilterState(
-      data.filter((item) =>
+      data.filter(item =>
         item.title.toLowerCase().includes(search.toLowerCase())
       )
     );
@@ -47,9 +46,8 @@ const Context = ({ children }) => {
         search: [search, setSearch],
         modalState: [modalIsOpen, setIsOpen],
         modalType: [modalType, setModalType],
-        deleteId: [deleteId, setDeleteId],
-      }}
-    >
+        taskId: [taskId, setTaskId],
+      }}>
       {children}
     </globalContext.Provider>
   );

@@ -1,16 +1,18 @@
-import "./styles/delete.css";
-import { globalContext } from "./context/Context";
-import { useContext } from "react";
+import './styles/delete.css';
+import { globalContext } from './context/Context';
+import { useContext } from 'react';
 const DeleteCard = () => {
-  const { modalState, tasks, deleteId } = useContext(globalContext);
-  const [deleteTask] = deleteId;
+  const { modalState, tasks, taskId } = useContext(globalContext);
+  const [deleteTask] = taskId;
 
   const [addNewTask, setAddNewTask] = tasks;
 
   const [, setStateModal] = modalState;
-  const removeElement = () => {
-    setAddNewTask(addNewTask.filter((item) => item.id !== deleteTask));
-    localStorage.setItem("data", JSON.stringify(addNewTask));
+  const removeElement = async () => {
+    const res = await addNewTask.filter(item => item.id !== deleteTask);
+    localStorage.setItem('data', JSON.stringify(res));
+    setAddNewTask(res);
+    setStateModal(false);
   };
   return (
     <div className="deleteModal">

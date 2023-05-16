@@ -29,7 +29,7 @@ const DashBoard = () => {
           placeholder="Search some ..."
         />
       </div>
-      <button onClick={openCreateTaskModal}>Create Task</button>
+      <button onClick={openCreateTaskModal} className="createTask">Create Task</button>
       <div className="container">
         <div className="cardList">
           {filterState.length > 0 ? (
