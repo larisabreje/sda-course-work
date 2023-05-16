@@ -14,7 +14,7 @@ const Context = ({ children }) => {
   async function getData() {
     const res = await fetch('../data.json');
     const response = await res.json();
-    if (lsData.length > response.length) {
+    if (lsData.length >= response.length) {
       setData(lsData);
     } else {
       setData(response);
@@ -26,7 +26,6 @@ const Context = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (lsData.length < data.length)
       localStorage.setItem('data', JSON.stringify(data));
   }, [data]);
  

@@ -9,46 +9,40 @@ const EditTask = () => {
   const [idTask] = taskId;
 
   const [title, setTitle] = useState('');
-  const [id, setId] = useState(null);
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [status, setStatus] = useState('');
   const [details, setDetails] = useState('');
 
+
+  const editTask = async () => {
+    const res = await addNewTask.map(obj => {
+        if (obj.id === idTask) {
+      return {...obj,   title: title,
+            description: description,
+            dueDate:dueDate,
+            status:status,
+            details:details,
+            }
+        }
+        return obj; 
+      });
+      localStorage.setItem('data', JSON.stringify(res));
+      setAddNewTask(res);
+      setModalState(false)
+  };
   useEffect(() => {
     addNewTask.filter(item => {
       if (item.id === idTask) {
-        setId(item.id);
         setTitle(item.title);
         setDescription(item.description);
         setDetails(item.details);
         setStatus(item.status);
         setDueDate(item.dueDate);
       }
-      return null;
+      return null ;
     });
   }, [modalStatee]);
-
-  // const createNewTask = event => {
-  //   event.preventDefault();
-  //   let max = 0;
-  //   addNewTask.map(item => {
-  //     if (item.id > max) {
-  //       max = item.id;
-  //     }
-  //   });
-  //   const newTask = {
-  //     id: max + 1,
-  //     title: title,
-  //     status: status,
-  //     dueDate: new Date(dueDate),
-  //     description: description,
-  //     details: details,
-  //   };
-  //   console.log('A new task was created');
-  //   setAddNewTask(prev => [...prev, newTask]);
-  //   setModalState(false);
-  // };
 
   return (
     <div className="createTaskDiv">
@@ -99,7 +93,8 @@ const EditTask = () => {
         }}
       />
 
-      <button onClick={() => {}}>Add Task</button>
+      <button onClick={editTask}>Edit Task</button>
+
     </div>
   );
 };
